@@ -33,7 +33,7 @@ def init():
     if '_rate' in base.keys():    # does it exist?
         (rate,period)=base['_rate']  # yes-copy rates
     else:
-        (rate,period)=(0.0,1)  # no - 
+        (rate,period)=(0.0,1)  # no -
         rate_change()    # load from user
 
 # main menu
@@ -63,7 +63,7 @@ def pallets():
             print ("|%9s |" % rej,strftime("%Y-%m-%d (%H:%M)",day),'|')
     print ('-'*33)
 
- # pallet out            
+ # pallet out
 def out():
     global base,rate,period
     print ('Pallet out-date',strfdate("Y-%m-%d (%H:%M)"))
@@ -78,7 +78,7 @@ def out():
     else:
         print ("Error! That pallet is not in warehouse!")
 
-# pallet in            
+# pallet in
 def insert():
     global base
     godz=localdate()
@@ -107,9 +107,10 @@ def choice():
             insert()
 
 # main program
-init()          # open database
-try:
-    choice()         # user intrface
-except:
-    print ("Unexpected error")
-base.close()    # close database
+def init():            # open database
+    try:
+        choice()         # user intrface
+    except:
+        print ("Unexpected error")
+#base.close()    # close database
+input()
